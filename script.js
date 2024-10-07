@@ -1,4 +1,4 @@
-// Person class definition
+
 class Person {
     constructor(name) {
         this.name = name;
@@ -8,11 +8,11 @@ class Person {
         return `Name: ${this.name}`;
     }
 
-    // Arrow function as a static method
+ 
     static greet = () => "Hello, welcome to our T-shirt store!";
 }
 
-// Student class definition extending Person
+
 class Student extends Person {
     constructor(name, rollNo) {
         super(name);
@@ -27,7 +27,7 @@ class Student extends Person {
     }
 }
 
-// Validate the form input and calculate price
+
 function validateForm(event) {
     event.preventDefault(); // Prevent the form from submitting
 
@@ -37,20 +37,18 @@ function validateForm(event) {
     const color = document.getElementById('color').value;
     const size = document.getElementById('size').value;
 
-    // Validation for mobile number (must be exactly 9 digits)
     const mobilePattern = /^\d{10}$/;
     if (!mobilePattern.test(mobile)) {
         alert('Mobile number must be exactly 10 digits.');
         return;
     }
     
-    // Validation for message length
     if (message.length > 100) {
         alert('Message on T-Shirt must be 100 characters or less.');
         return;
     }
 
-    // Calculate price based on size
+
     const sizePrices = {
         small: 150,
         medium: 120,
@@ -60,11 +58,10 @@ function validateForm(event) {
     const price = sizePrices[size] || 0;
     document.getElementById('price').innerText = `Price: Rs ${price.toFixed(2)}`;
 
-    // Create a Person object and print details
+
     const person = new Person(name);
     console.log(person.getDetails());
 
-    // Create a Student object for demonstration
     try {
         const student = new Student(name, 1); // Example roll number
         console.log(student.getDetails());
@@ -73,7 +70,7 @@ function validateForm(event) {
         return;
     }
 
-    // Process the order and generate a receipt
+    
     const today = new Date();
     const receiptDate = today.toLocaleDateString();
     const receiptDetails = `
@@ -93,5 +90,4 @@ function validateForm(event) {
     document.getElementById('orderDetails').innerHTML = receiptDetails;
 }
 
-// Attach the validation function to the form
 document.getElementById('orderForm').addEventListener('submit', validateForm);
