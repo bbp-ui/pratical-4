@@ -38,9 +38,9 @@ function validateForm(event) {
     const size = document.getElementById('size').value;
 
     // Validation for mobile number (must be exactly 9 digits)
-    const mobilePattern = /^\d{9}$/;
+    const mobilePattern = /^\d{10}$/;
     if (!mobilePattern.test(mobile)) {
-        alert('Mobile number must be exactly 9 digits.');
+        alert('Mobile number must be exactly 10 digits.');
         return;
     }
     
